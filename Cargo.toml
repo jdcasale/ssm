@@ -1,0 +1,35 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/ssm",
+    "crates/ssm-macro",
+    "crates/ssm-example",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+# Serialization
+serde = { version = "1", features = ["derive"] }
+
+# Async runtime
+tokio = { version = "1", features = ["sync", "rt", "macros"] }
+
+# Property-based testing
+proptest = "1"
+
+# Proc macro
+syn = { version = "2", features = ["full", "extra-traits"] }
+quote = "1"
+proc-macro2 = "1"
+
+# Metrics (optional)
+metrics = "0.24"
+metrics-helper-macros = "0.1"
+
+# Internal crates
+ssm = { path = "crates/ssm" }
+ssm-macro = { path = "crates/ssm-macro" }
